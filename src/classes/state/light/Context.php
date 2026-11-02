@@ -1,8 +1,8 @@
 <?php
 
-namespace src\classes;
+namespace src\classes\state\light;
 
-use src\interfaces\IState;
+use src\interfaces\state\light\IState;
 
 class Context
 {
