@@ -1,0 +1,21 @@
+<?php
+
+namespace src\classes;
+
+use src\interfaces\IState;
+
+class OffState implements IState
+{
+    public function __construct(private Context $context) {}
+
+    public function turnLightOn()
+    {
+        $this->context->setState(new OnState($this->context));
+        return "The light is now on.";
+    }
+
+    public function turnLightOff()
+    {
+        return "The light is already off.";
+    }
+}
