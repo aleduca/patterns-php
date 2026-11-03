@@ -12,7 +12,8 @@ class PrepareOrder implements IState
     public function preparingOrder()
     {
         // PrepareOrder é o estado default, então não há necessidade de mudar o estado para PrepareOrder novamente.
-        $this->context->setState(new DeliverOrder($this->context));
+        echo "Processing order preparation..." . PHP_EOL;
+        $this->context->setState(new DeliverOrder($this->context)); // transiciona o estado
         return "Order has been prepared and is ready for delivery.";
     }
 
