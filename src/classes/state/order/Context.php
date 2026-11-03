@@ -10,7 +10,8 @@ class Context
 
     public function __construct()
     {
-        $this->state = new PrepareOrder($this);
+        $this->state = new PrepareOrder(); // Define o estado inicial como PrepareOrder
+        $this->state->preparingOrder($this); // Define o estado inicial como PrepareOrder
     }
 
     public function setState(IState $state)
@@ -20,11 +21,11 @@ class Context
 
     public function preparingOrder()
     {
-        return $this->state->preparingOrder();
+        return $this->state->preparingOrder($this);
     }
 
     public function deliveringOrder()
     {
-        return $this->state->deliveringOrder();
+        return $this->state->deliveringOrder($this);
     }
 }
