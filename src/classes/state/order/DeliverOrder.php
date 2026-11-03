@@ -11,12 +11,11 @@ class DeliverOrder implements IState
 
     public function preparingOrder()
     {
-        throw new DomainException("Order is already being prepared.");
+        throw new DomainException("Order is already being delivered.");
     }
 
     public function deliveringOrder()
     {
-        $this->context->setState(new DeliverOrder($this->context));
         return "Order is being delivered.";
     }
 }

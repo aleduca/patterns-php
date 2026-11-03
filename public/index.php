@@ -4,13 +4,9 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use src\classes\state\order\Context;
 
-$state = 'processing';
+$state = 'delivering'; // Change this to 'preparing' or 'delivering' to test different states
 
-if ($state === 'processing') {
-} else if ($state === 'preparing') {
-} else {
-    echo "Invalid state.";
-}
+$context = new Context();
 
 // light examples
 // $context = new Context();
@@ -21,8 +17,8 @@ if ($state === 'processing') {
 // Order examples
 try {
     $context = new Context();
-    echo $context->deliveringOrder() . PHP_EOL; // Order is being delivered.
     echo $context->preparingOrder() . PHP_EOL; // Order is being prepared.
+    echo $context->deliveringOrder() . PHP_EOL; // Order is being delivered.
 } catch (DomainException $e) {
     dd($e->getMessage());
 }
