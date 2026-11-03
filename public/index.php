@@ -20,9 +20,9 @@ $state = 'delivering'; // Change this to 'preparing' or 'delivering' to test dif
 
 // Order examples
 try {
-    $context = new Context(new ContextFactory(OrderState::DELIVERING)->createState());
+    $context = new Context(new ContextFactory(OrderState::PREPARING)->createState());
     // dd($context);
-    // echo $context->preparingOrder() . PHP_EOL; // Order is being prepared.
+    $context->preparingOrder() . PHP_EOL; // Order is being prepared.
     $context->deliveringOrder() . PHP_EOL; // Order is being delivered.
 } catch (DomainException $e) {
     dd($e->getMessage());
