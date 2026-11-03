@@ -11,7 +11,7 @@ class PrepareOrder implements IState
 
     public function preparingOrder()
     {
-        $this->context->setState(new DeliverOrder($this->context));
+        $this->context->setState(new PrepareOrder($this->context));
         return "Order is being prepared.";
     }
 

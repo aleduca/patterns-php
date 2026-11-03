@@ -4,6 +4,14 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use src\classes\state\order\Context;
 
+$state = 'processing';
+
+if ($state === 'processing') {
+} else if ($state === 'preparing') {
+} else {
+    echo "Invalid state.";
+}
+
 // light examples
 // $context = new Context();
 // echo $context->turnLightOn() . PHP_EOL; // The light is now on.
