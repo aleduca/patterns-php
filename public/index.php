@@ -3,6 +3,10 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use src\classes\state\order\Context;
+use src\classes\state\order\ContextFactory;
+use src\classes\state\order\DeliverOrder;
+use src\classes\state\order\PrepareOrder;
+use src\enums\order\OrderState;
 
 $state = 'delivering'; // Change this to 'preparing' or 'delivering' to test different states
 
@@ -16,7 +20,8 @@ $state = 'delivering'; // Change this to 'preparing' or 'delivering' to test dif
 
 // Order examples
 try {
-    $context = new Context();
+    $context = new Context(new ContextFactory(OrderState::DELIVERING)->createState());
+    // dd($context);
     // echo $context->preparingOrder() . PHP_EOL; // Order is being prepared.
     $context->deliveringOrder() . PHP_EOL; // Order is being delivered.
 } catch (DomainException $e) {

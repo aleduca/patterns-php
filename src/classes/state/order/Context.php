@@ -8,10 +8,9 @@ class Context
 {
     private IState $state;
 
-    public function __construct()
+    public function __construct(IState $state)
     {
-        $this->state = new PrepareOrder(); // Define o estado inicial como PrepareOrder
-        $this->state->preparingOrder($this); // Define o estado inicial como PrepareOrder
+        $this->state = $state;
     }
 
     public function setState(IState $state)
