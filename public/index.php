@@ -21,6 +21,7 @@ try {
 	$context->deliveringOrder();
 	dump($context);
 	$context->deliveredOrder();
+	dump($context);
 } catch (\Throwable $th) {
 	dump($th->getMessage());
 }

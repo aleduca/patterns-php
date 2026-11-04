@@ -8,4 +8,5 @@ interface IState
 {
 	public function preparingOrder(Order $context);
 	public function deliveringOrder(Order $context);
+	public function deliveredOrder(Order $context);
 }

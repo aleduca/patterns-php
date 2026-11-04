@@ -14,7 +14,7 @@ class DeliveringOrder implements IState
 
 	public function deliveringOrder(Order $context)
 	{
-		dump('Order is ready') . PHP_EOL;
+		dump('Order is already being delivered.');
 		$context->setState(new DeliveredOrder($context)); // transiciona o estado
 	}
 
