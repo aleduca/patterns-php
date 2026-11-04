@@ -2,10 +2,10 @@
 
 namespace src\interfaces\state\order;
 
-use src\classes\state\order\Context;
+use src\classes\state\order\Order;
 
 interface IState
 {
-    public function preparingOrder(Context $context);
-    public function deliveringOrder(Context $context);
+	public function preparingOrder(Order $context);
+	public function deliveringOrder(Order $context);
 }

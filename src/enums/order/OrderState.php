@@ -4,6 +4,7 @@ namespace src\enums\order;
 
 class OrderState
 {
-    const PREPARING = 'preparing';
-    const DELIVERING = 'delivering';
+	const PREPARING = 'preparing';
+	const DELIVERING = 'delivering';
+	const DELIVERED = 'delivered';
 }

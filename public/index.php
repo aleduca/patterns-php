@@ -1,29 +1,26 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
-
-use src\classes\state\order\Context;
-use src\classes\state\order\ContextFactory;
-use src\classes\state\order\DeliverOrder;
-use src\classes\state\order\PrepareOrder;
+use src\classes\state\order\Order;
+use src\classes\state\order\OrderFactory;
 use src\enums\order\OrderState;
 
-$state = 'delivering'; // Change this to 'preparing' or 'delivering' to test different states
-
-// $context = new Context();
+require __DIR__ . '/../vendor/autoload.php';
 
 // light examples
-// $context = new Context();
+// $context = new LightBulb();
 // echo $context->turnLightOn() . PHP_EOL; // The light is now on.
 // echo $context->turnLightOn() . PHP_EOL; // The light is already on.
 // echo $context->turnLightOff() . PHP_EOL; // The light is now off.
 
-// Order examples
+
 try {
-    $context = new Context(new ContextFactory(OrderState::PREPARING)->createState());
-    // dd($context);
-    $context->preparingOrder() . PHP_EOL; // Order is being prepared.
-    $context->deliveringOrder() . PHP_EOL; // Order is being delivered.
-} catch (DomainException $e) {
-    dd($e->getMessage());
+	$context = new Order(new OrderFactory(OrderState::PREPARING)->createState());
+	dump($context);
+	$context->preparingOrder();
+	dump($context);
+	$context->deliveringOrder();
+	dump($context);
+	$context->deliveredOrder();
+} catch (\Throwable $th) {
+	dump($th->getMessage());
 }
